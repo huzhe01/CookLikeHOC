@@ -14,7 +14,8 @@
 
 ## 新更新
 
-- 🍽️ **每日健康菜品推送**: 支持每个工作日自动推送低油低盐菜品到邮箱，[查看说明](./scripts/README.md)
+- 🍽️ **每周菜谱推送**: 工作日前一天晚上8点自动推送明日菜谱（1荤1素），附带美团小象超市购买链接
+  - [📖 使用指南](./scripts/WEEKLY_RECIPE_GUIDE.md) | [🧪 快速测试](./scripts/TEST_WEEKLY.md) | [📋 功能总结](./scripts/FEATURES_SUMMARY.md)
 
 - 欢迎大家来贡献实拍图
 

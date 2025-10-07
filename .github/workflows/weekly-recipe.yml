@@ -1,0 +1,32 @@
+name: 每周菜谱推送（工作日前一天晚上）
+
+on:
+  schedule:
+    # 每周日、周一、周二、周三、周四晚上8点（北京时间）= UTC 12:00
+    # 为第二天（周一到周五）准备菜谱
+    - cron: '0 12 * * 0-4'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  send-recipe:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v3
+    
+    - name: 设置 Python 环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: 运行菜品推送脚本
+      env:
+        SMTP_SERVER: smtp.qq.com
+        SMTP_PORT: 465
+        FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      run: |
+        cd scripts
+        python weekly_recipe_sender.py
+
