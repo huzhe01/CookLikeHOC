@@ -1,0 +1,30 @@
+name: 每日健康菜品推送
+
+on:
+  schedule:
+    # 每个工作日（周一到周五）早上 8:00 UTC (北京时间 16:00) 运行
+    - cron: '0 0 * * 1-5'  # 修改为北京时间上午8点，即UTC时间0点
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  send-recipe:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v3
+    
+    - name: 设置 Python 环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: 运行菜品推送脚本
+      env:
+        SMTP_SERVER: smtp.qq.com
+        SMTP_PORT: 465
+        FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      run: |
+        python scripts/daily_recipe_sender.py
+

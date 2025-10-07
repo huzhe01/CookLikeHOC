@@ -1,0 +1,31 @@
+# 邮件配置示例
+# 本地运行时需要设置以下环境变量
+
+# SMTP服务器配置
+SMTP_SERVER=smtp.qq.com
+SMTP_PORT=465
+
+# 发件人邮箱配置
+FROM_EMAIL=your_email@qq.com
+EMAIL_PASSWORD=your_authorization_code
+
+# 使用方法（Linux/Mac）：
+# export FROM_EMAIL="your_email@qq.com"
+# export EMAIL_PASSWORD="your_authorization_code"
+# export SMTP_SERVER="smtp.qq.com"
+# export SMTP_PORT="465"
+# python scripts/daily_recipe_sender.py
+
+# 使用方法（Windows CMD）：
+# set FROM_EMAIL=your_email@qq.com
+# set EMAIL_PASSWORD=your_authorization_code
+# set SMTP_SERVER=smtp.qq.com
+# set SMTP_PORT=465
+# python scripts/daily_recipe_sender.py
+
+# 注意：
+# 1. EMAIL_PASSWORD 是邮箱授权码，不是登录密码
+# 2. QQ邮箱授权码获取方式：
+#    - 登录QQ邮箱 -> 设置 -> 账户 -> POP3/IMAP/SMTP服务
+#    - 开启服务并生成授权码
+
