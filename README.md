@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[**Docker Support**](./docker_support/README.md) | [**Development**](./docs/development.md)
+[**Docker Support**](./docker_support/README.md) | [**Development**](./docs/development.md) | [**每日健康菜品推送**](./docs/daily_recipe_setup.md)
 
 </div>
 
@@ -13,6 +13,8 @@
 仓库主体部分于2024年完工，和2025年9月份的舆论事件无关。截止提交时，仓库的贡献者们与老乡鸡的唯一关系只有消费者和商家的关系。本仓库不是老乡鸡的官方仓库。如果有任何问题或意见建议，欢迎指出
 
 ## 新更新
+
+- 🥗 新增每日健康菜品推送功能！每个工作日自动推送低油低盐菜品到您的邮箱，[配置指南](./docs/daily_recipe_setup.md)
 
 - 欢迎大家来贡献实拍图
 
