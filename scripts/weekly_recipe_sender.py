@@ -386,9 +386,8 @@ class WeeklyRecipeSender:
                 </div>
                 
                 <div class="footer">
-                    <p>📅 {datetime.now().strftime('%Y年%m月%d日')} | 像老乡鸡那样做饭</p>
-                    <p>💚 低油低盐，健康生活从每一餐开始</p>
-                    <p>🔗 查看更多菜品：<a href="https://github.com/Gar-b-age/CookLikeHOC" style="color: #3498db;">CookLikeHOC</a></p>
+                    <p>📅 {datetime.now().strftime('%Y年%m月%d日')} </p>
+                    <p>💚 低油低盐，健康生活从每一餐开始 by 小胡</p>
                 </div>
             </div>
         </body>
@@ -449,13 +448,13 @@ class WeeklyRecipeSender:
         
         return '\n'.join(html_parts)
     
-    def send_email(self, to_email, subject, content):
+    def send_email(self, subject, content):
         """发送邮件"""
         smtp_server = os.getenv('SMTP_SERVER', 'smtp.qq.com')
         smtp_port = int(os.getenv('SMTP_PORT', '465'))
         from_email = os.getenv('FROM_EMAIL')
         email_password = os.getenv('EMAIL_PASSWORD')
-        
+        to_email = os.getenv('TO_EMAIL')
         if not from_email or not email_password:
             print("错误: 未设置邮件配置环境变量 FROM_EMAIL 和 EMAIL_PASSWORD")
             return False
@@ -466,7 +465,7 @@ class WeeklyRecipeSender:
             message['From'] = from_email
             message['To'] = to_email
             message['Subject'] = Header(subject, 'utf-8')
-            
+
             # 添加HTML内容
             html_part = MIMEText(content, 'html', 'utf-8')
             message.attach(html_part)
@@ -498,7 +497,7 @@ class WeeklyRecipeSender:
             traceback.print_exc()
             return False
     
-    def run(self, to_email):
+    def run(self):
         """运行主流程"""
         print("=" * 60)
         print("🍳 明日菜谱推送（1荤1素健康搭配）")
@@ -521,7 +520,7 @@ class WeeklyRecipeSender:
         
         subject = f"🍽️ 明日菜谱 {tomorrow_str} {weekday_cn}：{meat_recipe['name']} + {veg_recipe['name']}"
         
-        success = self.send_email(to_email, subject, content)
+        success = self.send_email(subject, content)
         
         print("=" * 60)
         return success
@@ -530,6 +529,5 @@ class WeeklyRecipeSender:
 if __name__ == "__main__":
     sender = WeeklyRecipeSender()
     # 目标邮箱
-    target_email = "huzhe06@gmail.com"
-    sender.run(target_email)
+    sender.run()
 

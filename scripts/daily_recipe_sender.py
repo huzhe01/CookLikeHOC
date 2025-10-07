@@ -220,7 +220,7 @@ class RecipeSender:
         html_lines.append(f'''
             <div class="footer">
                 <p>📅 {today} | 像老乡鸡那样做饭</p>
-                <p>💡 低油低盐，健康生活从每一餐开始 From 小胡</p>
+                <p>💡 低油低盐，健康生活从每一餐开始 From Zhe Hu</p>
             </div>
         </body>
         </html>
