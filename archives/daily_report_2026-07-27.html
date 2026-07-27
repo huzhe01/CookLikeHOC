@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2d3748;
+            margin: 0;
+            font-size: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .date {
+            color: #718096;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .briefing-box {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 5px solid #38b2ac;
+        }
+        .briefing-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #234e52;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .section-icon {
+            font-size: 28px;
+            margin-right: 15px;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #2d3748;
+            margin: 0;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #718096;
+            margin-left: auto;
+        }
+        /* Paper Cards */
+        .paper-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .paper-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        .paper-card.ad { border-left-color: #48bb78; }
+        .paper-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .paper-title a { color: #2d3748; text-decoration: none; }
+        .paper-title a:hover { color: #667eea; }
+        .paper-authors { font-size: 13px; color: #718096; margin-bottom: 10px; }
+        .paper-summary { font-size: 14px; color: #4a5568; line-height: 1.7; }
+        .paper-meta { display: flex; gap: 15px; margin-top: 12px; font-size: 12px; }
+        .paper-tag { display: inline-block; padding: 3px 10px; background: #edf2f7; border-radius: 12px; color: #4a5568; }
+        
+        /* Feed Cards */
+        .feed-list { list-style: none; padding: 0; }
+        .feed-item {
+            padding: 15px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            flex-direction: column;
+        }
+        .feed-item:last-child { border-bottom: none; }
+        .feed-source { 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            color: #718096; 
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .feed-title { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+        .feed-title a { color: #2b6cb0; text-decoration: none; }
+        .feed-title a:hover { text-decoration: underline; }
+        .feed-date { font-size: 12px; color: #a0aec0; }
+
+        .video-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            color: white;
+        }
+        .video-title a { color: #ff6b6b; text-decoration: none; }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        .stats-box {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 AI 研究周报</h1>
+            <div class="date">2026年07月27日</div>
+        </div>
+        
+        <!-- AI Daily Briefing -->
+        <div class="briefing-box">
+            <div class="briefing-title">☕️ 今日 AI 简报</div>
+            <div style="color: #2c7a7b; font-size: 15px; line-height: 1.8;">
+                <p>无法生成今日简报，请直接阅读下方详细内容。</p>
+            </div>
+        </div>
+        
+        <!-- arXiv Papers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📚</span>
+                <h2 class="section-title">核心论文 (ArXiv)</h2>
+            </div>
+            <h3 style="color: #4a5568; margin-top:20px;">🔥 大模型前沿</h3>
+            <p style="color: #718096; font-style: italic;">今日无更新</p>
+            
+            <h3 style="color: #4a5568; margin-top:30px;">📊 广告与推荐算法</h3>
+            <p style="color: #718096; font-style: italic;">今日无更新</p>
+        </div>
+        
+        <!-- RSS Feeds -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📡</span>
+                <h2 class="section-title">业界动态</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h3 style="border-bottom: 2px solid #ed8936; padding-bottom: 10px; color: #c05621;">🏢 AI Labs 更新</h3>
+                    <p style="color: #cbd5e0;">暂无动态</p>
+                </div>
+                <div>
+                    <h3 style="border-bottom: 2px solid #48bb78; padding-bottom: 10px; color: #2f855a;">💰 顶级风投观点</h3>
+                    <p style="color: #cbd5e0;">暂无动态</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                 <h3 style="border-bottom: 2px solid #4299e1; padding-bottom: 10px; color: #2b6cb0;">📰 科技新闻精选</h3>
+                 <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/07/26/are-brain-waves-the-next-unlock-for-physical-ai/" target="_blank">Are brain waves the next unlock for physical AI?</a></div>
+                <div class="feed-date">07-27</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch AI</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/07/26/are-brain-waves-the-next-unlock-for-physical-ai/" target="_blank">Are brain waves the next unlock for physical AI?</a></div>
+                <div class="feed-date">07-27</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/column/971103/champagne-and-bullets-bad-movies-review" target="_blank">Champagne and Bullets belongs on the Mount Rushmore of bad movies</a></div>
+                <div class="feed-date">07-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/07/26/can-apple-make-smart-glasses-that-arent-a-constant-privacy-threat/" target="_blank">Can Apple make smart glasses that aren’t a constant privacy threat?</a></div>
+                <div class="feed-date">07-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/culture/2026/07/first-teaser-for-apple-tvs-neuromancer-debuts-at-sdcc/" target="_blank">First teaser for Apple TV's Neuromancer debuts at SDCC</a></div>
+                <div class="feed-date">07-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/07/26/making-sense-of-the-panic-over-chinese-ai/" target="_blank">Making sense of the panic over Chinese AI</a></div>
+                <div class="feed-date">07-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch AI</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/07/26/making-sense-of-the-panic-over-chinese-ai/" target="_blank">Making sense of the panic over Chinese AI</a></div>
+                <div class="feed-date">07-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/tech/971101/apple-smart-glasses-privacy" target="_blank">Apple is banking on privacy to set its smart glasses apart</a></div>
+                <div class="feed-date">07-26</div>
+            </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- YouTube Videos -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2 class="section-title">科技领袖访谈</h2>
+            </div>
+            <h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Elon Musk</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=D_1j5dVWNYI" target="_blank">🎥 JUST RECORDED: Elon Musk Announces SPACEX Plans</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">I've launched a private community for people responsible for significant personal, family, or busine...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=oJSOUyaJeV4" target="_blank">🎥 Did Musk and Trump Rig the 2024 Election?</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Political analyst and commentator Nathan Taylor joins Wajahat Ali to examine claims, allegations, an...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Jensen Huang</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=q_umfWm8J28" target="_blank">🎥 Nvidia GTC Taipei 2026: Jensen Huang Full Keynote</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">nvidia #ai #jensenhuang #artificialintelligence #technology #stocks #yahoofinance #semiconductors #i...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=wSp6AiNIrsY" target="_blank">🎥 NVIDIA GTC Taipei 2026 Keynote | Full Replay</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">NVIDIA GTC Taipei 2026 keynote with Founder and CEO Jensen Huang unveils the company's latest platfo...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Sam Altman</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=LHPNBVMaTVg" target="_blank">🎥 SHOTS FIRED!! OPEN AI Explodes</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Episode 520: Shaan Puri (https://twitter.com/ShaanVP) and Sam Parr (https://twitter.com/theSamParr) ...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=qr9kmHYZG-8" target="_blank">🎥 Sam Altman이 말하는 AI 시대 창업의 법칙 | OpenAI CEO 인터뷰</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">OpenAI 공동창업자 겸 CEO Sam Altman이 예전 스탠퍼드 "스타트업 시작하는 법" 강연 이후 10년간 무엇이 바뀌었는지 이야기 ......</div>
+                </div>
+                
+        </div>
+        
+        <!-- New Sources: GitHub, Reddit, HN -->
+        
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">🌐</span>
+                    <h2 class="section-title">社区精选 (AI Curated)</h2>
+                </div>
+                
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f59e0b; padding-bottom: 10px; color: #d97706;">🔥 GitHub 趋势项目</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/mshumer/Claude-of-Duty" target="_blank" style="color: #2b6cb0;">
+                        mshumer/Claude-of-Duty
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/makecindy/cindy" target="_blank" style="color: #2b6cb0;">
+                        makecindy/cindy
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/vercel-labs/scriptc" target="_blank" style="color: #2b6cb0;">
+                        vercel-labs/scriptc
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f97316; padding-bottom: 10px; color: #ea580c;">🟠 Hacker News 精选</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49063022" target="_blank" style="color: #2b6cb0;">
+                        US citizen charged after GrapheneOS phone wipes during airport search
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49057877" target="_blank" style="color: #2b6cb0;">
+                        The New AI Superpowers: Focus and Followthrough
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49024980" target="_blank" style="color: #2b6cb0;">
+                        Rethinking legal education in the AI era
+                    </a>
+                </div>
+                
+            </div>
+            
+            </div>
+            
+        
+        
+        <div class="stats-box">
+            <h4 style="margin:0 0 10px 0; color:#4a5568;">⚙️ 系统运行统计</h4>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#718096;">
+                <div>
+                    <strong>🤖 AI 模型 (Qwen-72B)</strong><br>
+                    调用次数: 0<br>
+                    Input Tokens: 0<br>
+                    Output Tokens: 0
+                </div>
+                <div>
+                    <strong>🎬 YouTube API</strong><br>
+                    API 调用: 18<br>
+                    Quota 消耗: 909 units
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="footer">
+            <p>📅 2026年07月27日 | Daily Info System</p>
+            <p>💡 Stay Hungry, Stay Foolish</p>
+        </div>
+    </div>
+</body>
+</html>
