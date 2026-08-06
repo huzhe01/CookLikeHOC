@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2d3748;
+            margin: 0;
+            font-size: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .date {
+            color: #718096;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .briefing-box {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 5px solid #38b2ac;
+        }
+        .briefing-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #234e52;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .section-icon {
+            font-size: 28px;
+            margin-right: 15px;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #2d3748;
+            margin: 0;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #718096;
+            margin-left: auto;
+        }
+        /* Paper Cards */
+        .paper-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .paper-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        .paper-card.ad { border-left-color: #48bb78; }
+        .paper-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .paper-title a { color: #2d3748; text-decoration: none; }
+        .paper-title a:hover { color: #667eea; }
+        .paper-authors { font-size: 13px; color: #718096; margin-bottom: 10px; }
+        .paper-summary { font-size: 14px; color: #4a5568; line-height: 1.7; }
+        .paper-meta { display: flex; gap: 15px; margin-top: 12px; font-size: 12px; }
+        .paper-tag { display: inline-block; padding: 3px 10px; background: #edf2f7; border-radius: 12px; color: #4a5568; }
+        
+        /* Feed Cards */
+        .feed-list { list-style: none; padding: 0; }
+        .feed-item {
+            padding: 15px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            flex-direction: column;
+        }
+        .feed-item:last-child { border-bottom: none; }
+        .feed-source { 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            color: #718096; 
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .feed-title { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+        .feed-title a { color: #2b6cb0; text-decoration: none; }
+        .feed-title a:hover { text-decoration: underline; }
+        .feed-date { font-size: 12px; color: #a0aec0; }
+
+        .video-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            color: white;
+        }
+        .video-title a { color: #ff6b6b; text-decoration: none; }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        .stats-box {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 AI 研究周报</h1>
+            <div class="date">2026年08月06日</div>
+        </div>
+        
+        <!-- AI Daily Briefing -->
+        <div class="briefing-box">
+            <div class="briefing-title">☕️ 今日 AI 简报</div>
+            <div style="color: #2c7a7b; font-size: 15px; line-height: 1.8;">
+                <p>无法生成今日简报，请直接阅读下方详细内容。</p>
+            </div>
+        </div>
+        
+        <!-- arXiv Papers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📚</span>
+                <h2 class="section-title">核心论文 (ArXiv)</h2>
+            </div>
+            <h3 style="color: #4a5568; margin-top:20px;">🔥 大模型前沿</h3>
+            
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.05139v1" target="_blank">Toward Skill-Native LLMs: Skill Entropy for Benchmarking and Training Long-Horizon Reasoning</a>
+                </div>
+                <div class="paper-authors">👥 Yinghui He, Ling Yang, Jiarui Liu</div>
+                <div class="paper-summary">Long-horizon reasoning in recent LLMs demands that the model switch between distinct skills inside a reasoning chain, such as first doing a math derivation, then using the result to plan a schedule. We call such problems cross-skill long-horizon tasks: multi-step tasks whose steps require different reasoning skills and depend on earlier outputs. Existing benchmarks often evaluate individual skills, lacking a principled way to measure how well a model switches between skills. We address this gap from both the evaluation and training sides. We introduce Skill Entropy, a measure of the difficulty of switching from one skill to another. We then propose Skill^2-Bench, a benchmark of cross-skill long-horizon tasks built over 558 skills across 9 verifiable and open-ended domains. Each task is assigned a task-level skill-entropy score and grouped into three difficulty levels. Evaluating 8 frontier and 4 open-source models on Skill^2-Bench reveals a skill-switching gap: accuracy decreases on higher-entropy tasks. We then turn skill entropy from a benchmark scale into a training signal. We propose Skill-Entropy RL, an RL framework where the model predicts not only the answer at each step but also the skill used to produce it. The reward combines step-level correctness with a skill-entropy reward that measures the alignment between the model-predicted skill sequence and the gold skill sequence. On Qwen3-4B-Instruct and Qwen3-1.7B, Skill-Entropy RL improves the Skill^2-Bench score from 34.4% to 68.4% and from 14.6% to 40.1%, respectively, outperforming competitive baselines. The same pipeline can be applied to off-the-shelf training data such as OpenR1-Math, indicating that skill entropy is a reusable training signal. Code available at: https://github.com/Gen-Verse/Skill-Entropy-RL</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-05</span>
+                    <a href="https://arxiv.org/pdf/2608.05139v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.05126v1" target="_blank">Spoken Function Calling: A New Perspective on Spoken Language Understanding for Large Audio Language Models</a>
+                </div>
+                <div class="paper-authors">👥 Yuezhang Peng, Yuxin Liu, Changfeng Gao</div>
+                <div class="paper-summary">Spoken Language Understanding (SLU) is the core component of task-oriented dialogue systems and a pivotal link in achieving seamless human-agent interaction. While traditional SLU can effectively extract user semantics for closed-set tasks after in-domain supervised fine-tuning, it faces significant challenges in leveraging in-context learning for open-domain tasks due to its ambiguous rule definitions. This work proposes Spoken Function Calling (SFC), a novel semantic understanding perspective that optimizes semantic understanding with structured rule definitions, to evolve beyond traditional closed-set SLU. Specifically, we curate and extend a suite of spoken functions based on traditional SLU datasets, construct a multi-agent system to synthesize the SFC-Bench dataset, evaluate the performance of Large Language Models (LLMs) and Large Audio Language Models (LALMs), and enhance the SFC capabilities of LALMs through post-training. Experiments demonstrate that SFC outperforms traditional SLU, substantially enhancing the semantic extraction accuracy for LLMs and LALMs.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-05</span>
+                    <a href="https://arxiv.org/pdf/2608.05126v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.05124v1" target="_blank">Chained Recursive Language Models for Multi-Iteration Reasoning</a>
+                </div>
+                <div class="paper-authors">👥 Purbesh Mitra, Sennur Ulukus</div>
+                <div class="paper-summary">Long context reasoning in large language models (LLMs) is usually constrained by the fact that a single inference trajectory has to simultaneously explore the context, store intermediate state, verify evidence, and produce the final answer. This becomes particularly difficult in tasks that require extraction, counting, ordering, or multi-hop reasoning, where an early mistake can propagate until the final response. In this work, we propose Chained Recursive Language Models (Chained RLM), an inference-time architecture, in which the same underlying model is called repeatedly as a sequence of fresh reasoning roots. Each root receives the original problem and context, but does not inherit the full conversational history. Instead, it receives a compact plain-text summary, a plain-text blackboard, and some durable task-specific artifacts written by predecessor roots. The motivation is to manage the context by chopping into partial tasks rather than one large inference response; in each staged computation, intermediate artifacts can be inspected, corrected, and extended by a later fresh inference by the same model. We describe the system model, handoff mechanism, artifact workspace, and evaluation protocol for this system. We study when fresh-context artifact continuation gives a measurable gain in accuracy over direct LLM answering even with recursive tool-calling.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-05</span>
+                    <a href="https://arxiv.org/pdf/2608.05124v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.05086v1" target="_blank">Item Response Theory for AI Safety</a>
+                </div>
+                <div class="paper-authors">👥 Joshua Fonseca Rivera, Neil Shah, David Demitri Africa</div>
+                <div class="paper-summary">Language models differ in how safely they behave and these differences are measured by safety benchmarks. But aggregated benchmark scores are hard to trust and interpret, because benchmarks duplicate one another, correlate heavily, and models may sandbag when they detect evaluation. To address these issues, we draw on Item Response Theory (IRT), a statistical toolkit for measuring these latents from performance on items with inferred psychometric properties. We fit IRT models to eight safety benchmarks across 192 language models, the largest psychometric analysis of LLM safety evaluations to date, and contribute three results. First, we find that three interpretable factors of refusal strictness, truthfulness, and contextual harm explain most of the variance between models across benchmarks. Second, psychometrically selected items recover full benchmark scores with lower error than random subsets of the same size, and roughly ten adaptively chosen items suffice for several individual benchmarks, cutting evaluation cost by 97-99%. Third, IRT supports audits of individual models, showing that it can be used to detect naive sandbagging and changes of model behind APIs. Overall, we show IRT is a ready-made toolkit for reading, reducing, and auditing safety benchmarks, which we recommend frontier labs and evaluators adopt.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-05</span>
+                    <a href="https://arxiv.org/pdf/2608.05086v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.05080v1" target="_blank">Optimizing What Policies Learn From: Recoverability-aware Rollout Intervention Learning</a>
+                </div>
+                <div class="paper-authors">👥 Zheyuan Zhang, Manqing Mao, Hong Wang</div>
+                <div class="paper-summary">Critic-free group-based reinforcement learning has become a scalable approach for post-training large language models. However, most existing methods allocate the same number of rollouts to every task and trajectory state, even though some rollouts provide much more useful learning signals than others. Recent work has started to treat rollout generation as an adaptive decision, but two important limitations remain. First, intervention strategies are often based on fixed heuristics and therefore cannot adjust as the policy changes during training. Second, these methods usually decide only how many rollouts to generate, without explicitly controlling where and how to intervene. To address these limitations, we propose Recoverability-Aware Intervention Learning (RAIL), a training-time framework that learns how to generate rollouts based on the improvement produced by each intervention. RAIL models intervention selection as an online contextual-bandit problem and trains a recoverability controller using intervention traces collected through a shadow-to-live procedure. This allows the controller to keep learning while the underlying policy evolves. We evaluate RAIL in terms of effectiveness, adaptivity, expressiveness, and efficiency. Across multiple settings, RAIL consistently improves performance under limited rollout budgets. These results show that recoverability-aware intervention provides a principled way to generate more informative and less redundant rollouts, leading to stronger learning signals during post-training.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-05</span>
+                    <a href="https://arxiv.org/pdf/2608.05080v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.05050v1" target="_blank">The Effect of Perceived Race and Gender on Police Language Use: Experimental Evidence from VR Simulations</a>
+                </div>
+                <div class="paper-authors">👥 Sandra C. Sandoval, Navita Goyal, Rashawn Ray</div>
+                <div class="paper-summary">Against the backdrop of violence in police interactions with the U.S. public, we explore how deferentially police officers speak to virtual characters depicted as Black adult males in vir- tual reality (VR) simulations. We evaluate the effect of seeing and communicating with these characters through a causal in- ference lens, where the assignment of the Black man character to a police officer and simulation is the treatment variable. Our (marginal) average treatment effect AT E measures the social impact of the character on the deference of officer statements with each turn of the conversation. Soberingly, we find that most officers speak less deferentially to Black man characters, except for White, biracial, and multiracial female officers, es- pecially in settings where the VR character was known to be a suspect. Across a full conversation of a typical VR scene, these marginal AT Es can result in notable changes in def- erence of tone (two to several points difference on a scale of 0-10), above and beyond that due to the initial effect of per- ceiving a Black male character. Even more disconcerting is that this can contribute to conversation breakdowns that po- tentially result in violence or danger to both the public and the police. We also explored the capabilities of large language models (LLMs) for ATE estimation. From our methods com- parison analysis, including model validation against synthetic data, we provide unique scientific insights on LLM-assisted methodologies for ATE estimation. As such, for ATE esti- mation with multilevel data with text, we recommend mixed effects models with the inverse propensity treatment weighted (iptw) approach, which utilized an LLM for text feature cre- ation. While we also tested LLMs for finetuning prediction models ultimately for ATE estimation, we conclude they are an area for further development and refinement.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-05</span>
+                    <a href="https://arxiv.org/pdf/2608.05050v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+            
+            <h3 style="color: #4a5568; margin-top:30px;">📊 广告与推荐算法</h3>
+            
+            <div class="paper-card ad">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2607.29000v1" target="_blank">PaletteID: Prototype-Composed Semantic Identifiers for Multimodal CTR Prediction</a>
+                </div>
+                <div class="paper-authors">👥 Huanyu Liu, Baining Chen, Hui Liu</div>
+                <div class="paper-summary">Multimodal information can improve the accuracy of click-through rate (CTR) prediction and effectively alleviate item cold-start and long-tail problems. Recent studies commonly discretize pretrained multimodal embeddings into semantic identifiers (SIDs), allowing the model to learn task-specific semantic representations for recommendation. However, existing methods still provide limited gains due to two major limitations. First, codebook assignment fails to preserve semantic relevance and discards fine-grained continuous signals in the original embedding space. Second, the residual code paths are highly dependent on prefix codes, which limits the effective representational scalability of hierarchical identifiers. To address these issues, we propose PaletteID (PID), a prototype-based semantic identifier. Inspired by palette-based color composition, PID uses a compact set of representative prototype items as semantic anchors to bridge pretrained multimodal content space and recommendation models. Specifically, we first construct a prototype palette with Semantic Quality-Aware Determinantal Point Process (SQ-DPP), which jointly considers local content density and global semantic diversity. Then, for each target item, PID retrieves a sequence of semantically related prototypes and aggregates them into an informative PID representation, enabling rich and complementary semantic modeling. Extensive experiments on two public datasets demonstrate that PID consistently improves CTR prediction and yields larger gains for long-tail items. PID also produces more robust identifier assignments and provides more interpretable token semantics than existing residual SID methods.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-07-31</span>
+                    <a href="https://arxiv.org/pdf/2607.29000v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- RSS Feeds -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📡</span>
+                <h2 class="section-title">业界动态</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h3 style="border-bottom: 2px solid #ed8936; padding-bottom: 10px; color: #c05621;">🏢 AI Labs 更新</h3>
+                    <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">Meta Engineering</div>
+                <div class="feed-title"><a href="https://engineering.fb.com/2026/08/05/ml-applications/from-user-sequences-to-scaling-laws-a-multi-stage-architecture-for-metas-ads-ranking/" target="_blank">From User Sequences to Scaling Laws: A Multi-Stage Architecture for Meta’s Ads Ranking</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/" target="_blank">The next chapter of our AI momentum</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">OpenAI</div>
+                <div class="feed-title"><a href="https://openai.com/index/third-party-cyber-evaluations-involving-openai-models" target="_blank">Third-party cyber evaluations involving OpenAI models</a></div>
+                <div class="feed-date">08-04</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026/" target="_blank">The latest AI news we announced in July 2026</a></div>
+                <div class="feed-date">08-04</div>
+            </div>
+            </div>
+                </div>
+                <div>
+                    <h3 style="border-bottom: 2px solid #48bb78; padding-bottom: 10px; color: #2f855a;">💰 顶级风投观点</h3>
+                    <p style="color: #cbd5e0;">暂无动态</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                 <h3 style="border-bottom: 2px solid #4299e1; padding-bottom: 10px; color: #2b6cb0;">📰 科技新闻精选</h3>
+                 <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/ai-artificial-intelligence/976004/elon-musk-grokipedia-ai-wikipedia-not-updating-dead" target="_blank">Elon Musk&#8217;s attempt at an AI Wikipedia hasn&#8217;t been updated in months</a></div>
+                <div class="feed-date">08-06</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/05/get-up-to-400-off-your-techcrunch-disrupt-2026-pass-until-friday/" target="_blank">Get up to $400 off your TechCrunch Disrupt 2026 pass until Friday</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/security/2026/08/thousands-of-servers-can-be-backdoored-by-exploiting-buggy-motherboard-controllers/" target="_blank">Thousands of servers can be backdoored by exploiting buggy motherboard controllers</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/tech/975955/x-twitter-nikita-bier-leaving" target="_blank">X product chief Nikita Bier is leaving after one year</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/05/nikita-bier-steps-down-as-xs-head-of-product/" target="_blank">Nikita Bier steps down as X’s head of product</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/05/travis-kalanicks-robotics-startup-atoms-taps-former-uber-finance-chief-as-cfo/" target="_blank">Travis Kalanick’s robotics startup Atoms taps former Uber finance chief as CFO</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/" target="_blank">Meta launches Muse Code, an AI agent for large code bases</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch AI</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/" target="_blank">Meta launches Muse Code, an AI agent for large code bases</a></div>
+                <div class="feed-date">08-05</div>
+            </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- YouTube Videos -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2 class="section-title">科技领袖访谈</h2>
+            </div>
+            <h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Elon Musk</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=XuoqKYxDHVc" target="_blank">🎥 The full-length interview with Elon Musk | The Economist</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Elon Musk may be the most powerful man in the world. He's worth almost $1trn, runs Tesla and SpaceX,...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=rzut72IBdk8" target="_blank">🎥 Elon Musk&#39;s Ex Drops BIGGER Bombshells About MAGA, Trump &amp; Don&#39;s Arrest | Part 2</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">If you thought Part One was explosive, just wait. In Part Two, Ashley St. Clair drops even more bomb...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Jensen Huang</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=I4B37S1dyQQ" target="_blank">🎥 Jensen Huang: The Mindset That Built NVIDIA</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">NVIDIA started with the wrong technology, learned the right one from three textbooks bought at Fry's...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=YYcE2FKiglk" target="_blank">🎥 You Won&#39;t Believe What NVIDIA CEO Just Announced at GTC 2026 😬 - The Future Of AI.</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Watch the complete NVIDIA GTC 2026 keynote presented by CEO Jensen Huang as he unveils the latest br...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Sam Altman</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=Vv3CEAS_w34" target="_blank">🎥 Sam Altman - How to Start a Startup</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Sam Altman is Co-Founder & CEO of OpenAI. Sam on X: https://x.com/sama Ti on X: https://x.com/ti_mor...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=1MCQYn3A8Zg" target="_blank">🎥 El hombre que vendió el futuro de la IA: La historia de Sam Altman</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Hay inventos que cambian una industria. Y otros que cambian a toda la humanidad. En silencio, mientr...</div>
+                </div>
+                
+        </div>
+        
+        <!-- New Sources: GitHub, Reddit, HN -->
+        
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">🌐</span>
+                    <h2 class="section-title">社区精选 (AI Curated)</h2>
+                </div>
+                
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f59e0b; padding-bottom: 10px; color: #d97706;">🔥 GitHub 趋势项目</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/KKKKhazix/human-writing" target="_blank" style="color: #2b6cb0;">
+                        KKKKhazix/human-writing
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/Accio-Lab/RealReplicaBench" target="_blank" style="color: #2b6cb0;">
+                        Accio-Lab/RealReplicaBench
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/x4gKing/3x-ui-multi" target="_blank" style="color: #2b6cb0;">
+                        x4gKing/3x-ui-multi
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f97316; padding-bottom: 10px; color: #ea580c;">🟠 Hacker News 精选</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49191624" target="_blank" style="color: #2b6cb0;">
+                        Nashville uses eminent domain to block data center near zoo
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49184755" target="_blank" style="color: #2b6cb0;">
+                        Changes at Google DeepMind: Demis Hassabis from CEO to Chair, Jeff Dean departs
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49186762" target="_blank" style="color: #2b6cb0;">
+                        Beating GPT-5.6 Sol on retrieval with 100x cheaper open models
+                    </a>
+                </div>
+                
+            </div>
+            
+            </div>
+            
+        
+        
+        <div class="stats-box">
+            <h4 style="margin:0 0 10px 0; color:#4a5568;">⚙️ 系统运行统计</h4>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#718096;">
+                <div>
+                    <strong>🤖 AI 模型 (Qwen-72B)</strong><br>
+                    调用次数: 0<br>
+                    Input Tokens: 0<br>
+                    Output Tokens: 0
+                </div>
+                <div>
+                    <strong>🎬 YouTube API</strong><br>
+                    API 调用: 18<br>
+                    Quota 消耗: 909 units
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="footer">
+            <p>📅 2026年08月06日 | Daily Info System</p>
+            <p>💡 Stay Hungry, Stay Foolish</p>
+        </div>
+    </div>
+</body>
+</html>
