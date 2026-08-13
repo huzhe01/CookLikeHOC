@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2d3748;
+            margin: 0;
+            font-size: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .date {
+            color: #718096;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .briefing-box {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 5px solid #38b2ac;
+        }
+        .briefing-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #234e52;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .section-icon {
+            font-size: 28px;
+            margin-right: 15px;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #2d3748;
+            margin: 0;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #718096;
+            margin-left: auto;
+        }
+        /* Paper Cards */
+        .paper-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .paper-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        .paper-card.ad { border-left-color: #48bb78; }
+        .paper-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .paper-title a { color: #2d3748; text-decoration: none; }
+        .paper-title a:hover { color: #667eea; }
+        .paper-authors { font-size: 13px; color: #718096; margin-bottom: 10px; }
+        .paper-summary { font-size: 14px; color: #4a5568; line-height: 1.7; }
+        .paper-meta { display: flex; gap: 15px; margin-top: 12px; font-size: 12px; }
+        .paper-tag { display: inline-block; padding: 3px 10px; background: #edf2f7; border-radius: 12px; color: #4a5568; }
+        
+        /* Feed Cards */
+        .feed-list { list-style: none; padding: 0; }
+        .feed-item {
+            padding: 15px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            flex-direction: column;
+        }
+        .feed-item:last-child { border-bottom: none; }
+        .feed-source { 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            color: #718096; 
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .feed-title { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+        .feed-title a { color: #2b6cb0; text-decoration: none; }
+        .feed-title a:hover { text-decoration: underline; }
+        .feed-date { font-size: 12px; color: #a0aec0; }
+
+        .video-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            color: white;
+        }
+        .video-title a { color: #ff6b6b; text-decoration: none; }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        .stats-box {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 AI 研究周报</h1>
+            <div class="date">2026年08月13日</div>
+        </div>
+        
+        <!-- AI Daily Briefing -->
+        <div class="briefing-box">
+            <div class="briefing-title">☕️ 今日 AI 简报</div>
+            <div style="color: #2c7a7b; font-size: 15px; line-height: 1.8;">
+                <p>无法生成今日简报，请直接阅读下方详细内容。</p>
+            </div>
+        </div>
+        
+        <!-- arXiv Papers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📚</span>
+                <h2 class="section-title">核心论文 (ArXiv)</h2>
+            </div>
+            <h3 style="color: #4a5568; margin-top:20px;">🔥 大模型前沿</h3>
+            
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.12313v1" target="_blank">AVA-Encoder: Towards Agent-Native Video Representation Learning</a>
+                </div>
+                <div class="paper-authors">👥 Chuyue Li, Jinpeng Yu, Haozhe Wang</div>
+                <div class="paper-summary">Creative agents still lack an effective way to learn from high-quality human films, limiting their ability to produce cinematic-grade videos. A key challenge is the absence of a structured video representation that is both faithful to film content and directly usable for agentic reasoning and manipulation. To address the challenge, we propose the Agentic Video Auto-Encoder (AVA-Encoder), a framework for learning agent-native video representations via agentic auto-encoding.   AVA-Encoder transforms a video into a knowledge graph (KG) representation and then reconstructs it back into video. Its hierarchy and state nodes store structured text, while a linked asset layer holds generated images, audio, and video. Typed edges preserve the relations between these text descriptions and assets in a form that agents can easily understand, query, and edit. The video reconstruction differences drive a textual-gradient optimization framework, which expresses evaluation feedback as natural-language update directions for Data-Independent Encoding Policy Pseudo-Training in the outer loop and optional Data-Dependent KG Representation Refinement in the test-time inner loop.   Extensive experiments show that AVA-Encoder improves by 20.7 percentage points over the strongest external baseline. In the controlled policy-only setting, its pseudo-trained shot-level Agentic Video Encoder policy also outperforms a carefully human-tuned policy while using 74.3% fewer system-prompt tokens. We release the complete AVA-Encoder framework, a reliable agentic video reconstruction benchmark, and the first dataset of high-quality film KG representations.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-12</span>
+                    <a href="https://arxiv.org/pdf/2608.12313v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.12283v1" target="_blank">Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic Indicators, and Technical Signals</a>
+                </div>
+                <div class="paper-authors">👥 Alireza Kargarzadeh, Nariman Khaledian, Navid Parvini</div>
+                <div class="paper-summary">Large language models can extract richer signals from financial news than fixed sentiment lexicons, and recent work has explored feeding such signals into portfolio construction. We study an uncertainty-aware construction that feeds model-predicted risk -- decomposed into aleatoric and epistemic components -- directly into the covariance matrix of portfolio allocators, rather than treating portfolio risk as fixed or adjusting only expected returns. We evaluate the pipeline on Russell 2000 equities under three stock-selection regimes: a pure-alpha trigger that isolates abnormal stock moves not explained by macro indicators, a pure-beta trigger that captures macro-indicator moves before the stock itself fires, and a beta trigger in which both channels agree. Across the full holding-period grid, the separated pure-alpha and pure-beta legs usually dominate the beta intersection on Sharpe and return. Two horizons are especially informative. At one day, pure beta can work under low and moderate transaction costs because it captures immediate lead-lag spillovers from liquid macro and sector indicators into exposed small-cap stocks, but this advantage disappears at 100 bps when turnover and microstructure noise dominate. At 40 days, pure beta works for a different reason: slower macro repricing overtakes the firm-specific pure-alpha channel. The strongest conservative row is pure beta with GPT-4o mini sentiment, a Student-t target, a 40-day holding period, and risk parity allocation, reaching Sharpe 2.33 at 100 bps. The results suggest that stock-selection regime and allocator choice matter at least as much as the sentiment model, and that separating firm-specific and macro-exposure triggers is more informative than requiring both to fire simultaneously.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-12</span>
+                    <a href="https://arxiv.org/pdf/2608.12283v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.12253v1" target="_blank">One Frozen Simulator Is Not Enough: Simulator Collapse in Multi-Agent RL</a>
+                </div>
+                <div class="paper-authors">👥 Simon Yu, Nicholas Tomlin, Marwa Abdulhai</div>
+                <div class="paper-summary">Multi-agent reinforcement learning for human-AI interaction typically relies on a single large language model to simulate user behavior. We show that this approach systematically fails to generalize, and trace the failure to simulator collapse: because the simulator LLM is mode-collapsed, an LLM policy trained against it overfits to narrow strategies that exploit the simulator's dominant mode, and such a policy transfers poorly to unseen simulators and real users. We formalize this collapse theoretically and propose two complementary solutions, one at inference time and one at training time. The inference-time solution, Verbalized Sampling, broadens the simulator's behavior by sampling from a verbalized response distribution, reducing mode collapse. The training-time solution, Co-Training, jointly optimizes the policy against a population of trainable simulators, preventing it from overfitting to any single simulator's mode. We validate both solutions on three multi-turn benchmarks: Persuasion for Good, $τ^2$-bench, and CooperBench. Verbalized Sampling improves held-out success by up to 9% over single-simulator RL, and Co-Training pushes gains further to 14%; the human study shows similar gain on real users. Both solutions preserve the policy diversity that collapses under single-simulator RL. To support further work in this direction, we release SCOPE, an open-source framework for Population Co-Training multi-agent RL. More broadly, our results suggest that the diversity of the training environment, not only the policy, is critical to the generalization of multi-turn RL to real-world deployment.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-12</span>
+                    <a href="https://arxiv.org/pdf/2608.12253v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.12218v1" target="_blank">Information Abundance Paradox: Long-Context Training Undermines Parametric Knowledge</a>
+                </div>
+                <div class="paper-authors">👥 Arda Uzunoglu, Benjamin van Durme, Daniel Khashabi</div>
+                <div class="paper-summary">Large language models are increasingly trained and deployed with long contexts that span documents, code repositories, and interaction histories. This scaling reflects the implicit assumption that training on longer contexts will only help the model by exposing it to richer evidence. We challenge this view by studying how the context window shapes a model's mode of learning, shifting it between parametric internalization and contextualization. We propose the Information Abundance Paradox, which hypothesizes that abundant relevant information in the training context can reduce the incentive to encode that information parametrically, thereby increasing reliance on context. In pretraining with long documents, increasing the context window improves language modeling, natural language understanding, and closed-book MCQA only up to an intermediate optimum, after which performance consistently declines. In supervised fine-tuning, more task-relevant train-time context improves performance with supporting context, but reduces robustness when context is absent or misleading at test time. Our analysis suggests that this behavior arises when longer context provides a lower complexity solution. Mechanistically, training with informative context shifts gradient pressure from feed-forward networks, often linked to parametric knowledge, toward attention modules, and causal interventions show that this shift increases reliance on context during inference. Overall, these findings support the Information Abundance Paradox and suggest that scaling toward near-infinite context is not simply a matter of supplying more data, even when high-quality long-context data is abundant.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-12</span>
+                    <a href="https://arxiv.org/pdf/2608.12218v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.12150v1" target="_blank">Who Thinks Best Depends on How Long You Let Them: Budget-Dependent Rankings in LLM Evaluation</a>
+                </div>
+                <div class="paper-authors">👥 Rodrigo Guedes de Souza, Alison R. Panisson</div>
+                <div class="paper-summary">Standard evaluation of large language models assumes stable model rankings across inference conditions. We challenge this assumption by varying the token generation budget, i.e., the maximum tokens a model may produce, across seven levels (64--4,096), evaluating four models on three reasoning benchmarks (56,476 inferences). We report four findings: (i) 3--19% of items exhibit non-monotone behavior (accuracy decreasing with more budget), even after controlling for truncation, and this phenomenon is model-specific (cross-model overlap: 6--14%). (ii) Model rankings reverse across budgets on all benchmarks ($p {<} 0.01$, McNemar). (iii) Oracle analysis reveals model complementarity up to $+27.8$pp, most pronounced at constrained budgets. (iv) A budget-aware router captures 14.1% of the oracle gap cross-domain; budget features help within-domain ($+1.6$ to $+5.7$pp) but are domain-specific and hurt transfer ($-1.2$pp). These results argue for budget-conditioned evaluation protocols.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-12</span>
+                    <a href="https://arxiv.org/pdf/2608.12150v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.12149v1" target="_blank">Massive Activations in Hybrid Linear Attention Large Language Models: Pre-Attention Spikes and Inter-Spike Plateaus</a>
+                </div>
+                <div class="paper-authors">👥 Zunhai Su, Bohan Sun, Xialie Zhuang</div>
+                <div class="paper-summary">We present the first systematic study of Massive activations (MAs) in layer-interleaved HLA LLMs and uncover two architecture-aligned morphologies: MAs consistently spike immediately before full attention layers, forming pre-attention spikes (PAS), and can persist through intervening linear attention layers, giving rise to inter-spike plateaus (ISP). As full attention becomes denser, successive PAS become increasingly connected through ISP, ultimately recovering the stable MA morphology of full attention LLMs. We establish the recurrence of this organization across five linear attention architectures, six hybridization configurations, five data domains, and representative open-source hybrid models spanning 1.2B to 397B total parameters. Controlled pretraining of GDN-based hybrids at scales up to 1.3B shows that both morphologies emerge early and respond asymmetrically to output gating: full attention output gating strongly attenuates their absolute magnitudes without eliminating their layerwise organization, whereas removing GDN gates yields comparatively modest amplification. Mechanistically, our systematic-outlier analysis supports a shared lifecycle account governed by the timing of MA cancellation. PAS follows a localized write-sink-cancel process, while the extended persistence of ISP is consistent with delayed cancellation. At the full attention limit, this account recovers the stable MA morphology characteristic of full attention LLMs. Our code is available at https://github.com/StartluxLabs/Massive-Activations-HLA.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-12</span>
+                    <a href="https://arxiv.org/pdf/2608.12149v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+            
+            <h3 style="color: #4a5568; margin-top:30px;">📊 广告与推荐算法</h3>
+            <p style="color: #718096; font-style: italic;">今日无更新</p>
+        </div>
+        
+        <!-- RSS Feeds -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📡</span>
+                <h2 class="section-title">业界动态</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h3 style="border-bottom: 2px solid #ed8936; padding-bottom: 10px; color: #c05621;">🏢 AI Labs 更新</h3>
+                    <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/devices/pixel/pixel-watch-5-gps/" target="_blank">How we built the new GPS on Pixel Watch 5</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-services-gemini-august-2026/" target="_blank">Now you can connect even more of your favorite apps and services to Gemini.</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/platforms/android/tap-to-share-android/" target="_blank">Sharing between Pixel devices is now just a tap away.</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/devices/pixel/pixel-11-features/" target="_blank">7 can’t-miss updates from our Pixel 11 launch</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/devices/pixel/google-pixel-11-pro-xl/" target="_blank">The Pixel 11 series: Your most personal Pixel yet</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/devices/pixel/new-pixel-devices-2026/" target="_blank">Here’s your first look at the newest Pixel devices.</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/devices/pixel/pixel-11-helpful-updates-features/" target="_blank">Here are 3 ways your Pixel just got even more helpful.</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/devices/pixel/new-pixelsnap-accessories-cases-ring-stand/" target="_blank">New accessories for Pixel 11 phones are here.</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            </div>
+                </div>
+                <div>
+                    <h3 style="border-bottom: 2px solid #48bb78; padding-bottom: 10px; color: #2f855a;">💰 顶级风投观点</h3>
+                    <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">Sequoia Capital</div>
+                <div class="feed-title"><a href="https://sequoiacap.com/article/partnering-with-preview-lights-inference-action/" target="_blank">Partnering with Preview: Lights, Inference, Action</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                 <h3 style="border-bottom: 2px solid #4299e1; padding-bottom: 10px; color: #2b6cb0;">📰 科技新闻精选</h3>
+                 <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/health/2026/08/an-ultra-rare-amoeba-was-destroying-a-toddlers-brain-doctors-missed-it/" target="_blank">Toddler's tragic death from brain-destroying amoeba offers lessons for doctors</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/" target="_blank">Some Claude users are mad that Anthropic’s new watermarks will catch them using it at their jobs, classes</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch AI</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/" target="_blank">Some Claude users are mad that Anthropic’s new watermarks will catch them using it at their jobs, classes</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/12/ai-nuclear-power-firm-fermi-finally-has-a-new-ceo/" target="_blank">AI nuclear power firm Fermi finally has a new CEO</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/ai/2026/08/new-font-turns-ordinary-webpages-into-nonsense-for-ai-scrapers/" target="_blank">The web’s newest weapon against AI scrapers is a font</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/security/2026/08/terabytes-of-credentials-leaked-in-massive-supply-chain-attack/" target="_blank">Terabytes of credentials leaked in massive supply-chain attack</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/tech/979241/made-by-google-2026-live-blog-pixel-11-trevor-noah" target="_blank">Pixel 11 event live blog: Let&#8217;s watch Trevor Noah introduce Google&#8217;s new phones</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/gadgets/979263/8bitdo-mechanical-keyboard-galaxy-25-edge-deal-sale" target="_blank">This 8BitDo mechanical keyboard has an extra keypad and is 30 percent off</a></div>
+                <div class="feed-date">08-12</div>
+            </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- YouTube Videos -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2 class="section-title">科技领袖访谈</h2>
+            </div>
+            <h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Elon Musk</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=XuoqKYxDHVc" target="_blank">🎥 The full-length interview with Elon Musk | The Economist</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Elon Musk may be the most powerful man in the world. He's worth almost $1trn, runs Tesla and SpaceX,...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=rzut72IBdk8" target="_blank">🎥 Elon Musk&#39;s Ex Drops BIGGER Bombshells About MAGA, Trump &amp; Don&#39;s Arrest | Part 2</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">If you thought Part One was explosive, just wait. In Part Two, Ashley St. Clair drops even more bomb...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Jensen Huang</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=I4B37S1dyQQ" target="_blank">🎥 Jensen Huang: The Mindset That Built NVIDIA</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">NVIDIA started with the wrong technology, learned the right one from three textbooks bought at Fry's...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=YYcE2FKiglk" target="_blank">🎥 You Won&#39;t Believe What NVIDIA CEO Just Announced at GTC 2026 😬 - The Future Of AI.</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Watch the complete NVIDIA GTC 2026 keynote presented by CEO Jensen Huang as he unveils the latest br...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Sam Altman</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=Vv3CEAS_w34" target="_blank">🎥 Sam Altman - How to Start a Startup</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Sam Altman is Co-Founder & CEO of OpenAI. Sam on X: https://x.com/sama Ti on X: https://x.com/ti_mor...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=F_7M4Hc-usM" target="_blank">🎥 Stanford CS153 Frontier Systems | Scale, AGI, and the Future of Everything</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">For more information about Stanford's online Artificial Intelligence programs, visit: https://stanfo...</div>
+                </div>
+                
+        </div>
+        
+        <!-- New Sources: GitHub, Reddit, HN -->
+        
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">🌐</span>
+                    <h2 class="section-title">社区精选 (AI Curated)</h2>
+                </div>
+                
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f59e0b; padding-bottom: 10px; color: #d97706;">🔥 GitHub 趋势项目</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/guillaumemeyer/watermarks-remover" target="_blank" style="color: #2b6cb0;">
+                        guillaumemeyer/watermarks-remover
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/SaladDay/pi-from-scratch" target="_blank" style="color: #2b6cb0;">
+                        SaladDay/pi-from-scratch
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/gvzdv/claudish-to-english" target="_blank" style="color: #2b6cb0;">
+                        gvzdv/claudish-to-english
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f97316; padding-bottom: 10px; color: #ea580c;">🟠 Hacker News 精选</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49272832" target="_blank" style="color: #2b6cb0;">
+                        Tailscale Traces Database Corruption to 16y/o SQLite WAL-Reset Bug
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49275335" target="_blank" style="color: #2b6cb0;">
+                        HTML over WebSockets: real-time SPAs with barely any JavaScript
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49269090" target="_blank" style="color: #2b6cb0;">
+                        Launch HN: Discovered Materials (YC P26) – AI agents to discover new materials
+                    </a>
+                </div>
+                
+            </div>
+            
+            </div>
+            
+        
+        
+        <div class="stats-box">
+            <h4 style="margin:0 0 10px 0; color:#4a5568;">⚙️ 系统运行统计</h4>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#718096;">
+                <div>
+                    <strong>🤖 AI 模型 (Qwen-72B)</strong><br>
+                    调用次数: 0<br>
+                    Input Tokens: 0<br>
+                    Output Tokens: 0
+                </div>
+                <div>
+                    <strong>🎬 YouTube API</strong><br>
+                    API 调用: 18<br>
+                    Quota 消耗: 909 units
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="footer">
+            <p>📅 2026年08月13日 | Daily Info System</p>
+            <p>💡 Stay Hungry, Stay Foolish</p>
+        </div>
+    </div>
+</body>
+</html>
