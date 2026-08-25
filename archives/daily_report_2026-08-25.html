@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2d3748;
+            margin: 0;
+            font-size: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .date {
+            color: #718096;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .briefing-box {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 5px solid #38b2ac;
+        }
+        .briefing-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #234e52;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .section-icon {
+            font-size: 28px;
+            margin-right: 15px;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #2d3748;
+            margin: 0;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #718096;
+            margin-left: auto;
+        }
+        /* Paper Cards */
+        .paper-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .paper-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        .paper-card.ad { border-left-color: #48bb78; }
+        .paper-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .paper-title a { color: #2d3748; text-decoration: none; }
+        .paper-title a:hover { color: #667eea; }
+        .paper-authors { font-size: 13px; color: #718096; margin-bottom: 10px; }
+        .paper-summary { font-size: 14px; color: #4a5568; line-height: 1.7; }
+        .paper-meta { display: flex; gap: 15px; margin-top: 12px; font-size: 12px; }
+        .paper-tag { display: inline-block; padding: 3px 10px; background: #edf2f7; border-radius: 12px; color: #4a5568; }
+        
+        /* Feed Cards */
+        .feed-list { list-style: none; padding: 0; }
+        .feed-item {
+            padding: 15px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            flex-direction: column;
+        }
+        .feed-item:last-child { border-bottom: none; }
+        .feed-source { 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            color: #718096; 
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .feed-title { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+        .feed-title a { color: #2b6cb0; text-decoration: none; }
+        .feed-title a:hover { text-decoration: underline; }
+        .feed-date { font-size: 12px; color: #a0aec0; }
+
+        .video-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            color: white;
+        }
+        .video-title a { color: #ff6b6b; text-decoration: none; }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        .stats-box {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 AI 研究周报</h1>
+            <div class="date">2026年08月25日</div>
+        </div>
+        
+        <!-- AI Daily Briefing -->
+        <div class="briefing-box">
+            <div class="briefing-title">☕️ 今日 AI 简报</div>
+            <div style="color: #2c7a7b; font-size: 15px; line-height: 1.8;">
+                <p>无法生成今日简报，请直接阅读下方详细内容。</p>
+            </div>
+        </div>
+        
+        <!-- arXiv Papers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📚</span>
+                <h2 class="section-title">核心论文 (ArXiv)</h2>
+            </div>
+            <h3 style="color: #4a5568; margin-top:20px;">🔥 大模型前沿</h3>
+            
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.23566v1" target="_blank">How to Train a Critic Stably and Efficiently</a>
+                </div>
+                <div class="paper-authors">👥 Penghui Qi, Xiangxin Zhou, Wee Sun Lee</div>
+                <div class="paper-summary">Group-based reinforcement learning methods such as GRPO for large language models avoid training a critic by sampling multiple responses for each prompt. A reliable critic could instead estimate token-level advantages from one response, but standard critic-based training recipes are often unstable. We study this instability and develop \textbf{Best-Practice Critic Optimization (BPCO)}, a recipe that combines DPPO, value predictions bounded to the reward range, Monte Carlo value targets, unnormalized policy advantages, and length-adaptive generalized advantage estimation. Because the critic is used only during training, BPCO can also condition it on reward-defining information, such as a reference answer or grading rubric, that is hidden from the policy. Controlled experiments isolate the effect of each design choice. Across mathematical reasoning tasks with models ranging from 1.5B parameters to 30B-A3B mixtures of experts, BPCO improves a strong critic-based baseline consistently, and matches or exceeds a group-based baseline while sampling one response per prompt. The same recipe also improves learning with rubric-based rewards. These results show that a carefully designed critic provides a reliable alternative to group-relative advantage estimation. Code is available at https://github.com/QPHutu/golden_critic</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-24</span>
+                    <a href="https://arxiv.org/pdf/2608.23566v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.23497v1" target="_blank">Mitigating Reasoning-Induced Misalignment via Safety-Direction Penalty</a>
+                </div>
+                <div class="paper-authors">👥 Yipeng Zhao, Qishun Yang, Shenzhe Zhu</div>
+                <div class="paper-summary">Reasoning-Induced Misalignment, where fine-tuning on reasoning data containing no harmful content, including mathematics, code, and problem-solving with chain-of-thought traces can induce harmful behaviors of LLM, posing a serious challenge to the safety of LLM reasoning. Cross-architecture, cross-scale, and cross-dataset checks show that RIM does not always emerge. Previous work attributed RIM to neuron-level entanglement, but did not identify the geometry of the representation space underlying this entanglement or propose a training-time fix. We provide both: a representation-space analysis of RIM and the Safety-Direction Penalty (SDP), which penalizes movement along a learned safety direction during reasoning fine-tuning. The analysis extracts two activation-space directions, one encoding reasoning ability and the other safety behavior. These directions are coupled: fine-tuning that improves reasoning shifts safety representations, and prompts with larger shifts show larger safety degradation. CKA distance ratios and probes locate the safety-decision layers where this shift is most relevant. These findings guide the design of SDP: the coupling motivates penalizing displacement along the safety direction, and the layer localization sets the initial scope. When the initial scope leaves compensatory shifts beyond the penalized layers, the same diagnostics guide iterative expansion. On Qwen2.5-3B and 7B, SDP restores safety while preserving benchmark reasoning performance.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-24</span>
+                    <a href="https://arxiv.org/pdf/2608.23497v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.23448v1" target="_blank">How Useful are LLMs for Grammar Engineering? Cantonese ParGram Resources and Controlled Experimental Evaluation with English Baselines</a>
+                </div>
+                <div class="paper-authors">👥 Chit-Fung Lam</div>
+                <div class="paper-summary">This paper presents new Cantonese ParGram resources and evaluates LLMs for knowledge-driven grammar engineering within a controlled experimental paradigm. Using Cantonese ParGram resources as gold standards, with corresponding English baselines, we investigate whether OpenAI's gpt-oss-120b and GPT-5.4 can generate machine-processable grammars from sentences and target formal structures under systematically varied prompting conditions. GPT-5.4 outperformed gpt-oss-120b, while grammars generated from target formal structures generally outperformed those generated from sentences. Although both models could generate locally plausible phrase-structure rules, lexical entries, and templates, they often struggled to coordinate interacting formal constraints, especially in multi-construction settings. The results characterize both the capabilities and limitations of current LLMs for potential integration into AI-assisted expert workflows: LLMs may support intermediate stages of grammar development, but human linguistic expertise remains central to analysis, validation, and refinement. The study also contributes new Cantonese symbolic grammatical resources.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-24</span>
+                    <a href="https://arxiv.org/pdf/2608.23448v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.23421v1" target="_blank">A Comprehensive Analysis of Arabic Natural Language Processing Research: Trends, Topic Evolution, and Research Gaps -- A Bibliometric and Topic-Based Study</a>
+                </div>
+                <div class="paper-authors">👥 Mullosharaf K. Arabov</div>
+                <div class="paper-summary">Natural Language Processing (NLP) has grown rapidly over the past decade, driven by digital transformation in the Arab world, social media, and large language models (LLMs). Despite this growth, a comprehensive quantitative meta-analysis of the field remains absent. This study presents a large-scale bibliometric and topic-based analysis of 7,120 Arabic NLP papers published between 1960 and 2026, sourced from six collections. We employ BERTopic for topic modeling, regression analysis to identify citation predictors, social network analysis for co-authorship structures, and geographic mapping. Our findings show a significant publication surge after 2020, driven by transformer models and LLMs. Topic modeling identifies 19 substantive themes, the largest centered on text, speech, translation, and recognition. Citation analysis reveals a positive correlation between paper age and citations (r = 0.245, p < 0.001); regression shows that indexing in OpenAlex or Semantic Scholar and institutional affiliation are associated with higher citation counts. Saudi Arabia, the United States, and Egypt lead in research output. A task-dialect gap matrix identifies critical understudied areas, including summarization for Maghrebi, Iraqi, and Sudanese dialects. The largest topic has the highest H-index (87), followed by sentiment analysis (54). Our quantitative approach complements existing qualitative surveys and offers recommendations to prioritize under-resourced dialects and develop culturally aligned benchmarks for Arabic NLP.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-24</span>
+                    <a href="https://arxiv.org/pdf/2608.23421v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.23411v1" target="_blank">STONIC: A Layered Measurement Contract for LLM Value Profiling</a>
+                </div>
+                <div class="paper-authors">👥 Andrei Chetvergov, Stepan Ukolov, Timofei Sivoraksha</div>
+                <div class="paper-summary">LLM value studies often merge questionnaire ratings, pairwise choices, and values inferred from generated text into one profile. That merge assumes that the three observations describe the same stable preference. STONIC tests this assumption on 5,144 situations from four banks and 35 fixed model configurations. It compares responses rated in isolation, choices made under counterbalanced conflict, spontaneous answers, and later choices between a model's own answer and authored alternatives. 10 of 17 configurations with usable behavioral data preserve the endorsement-choice relation across banks. Every one of the 17 eligible configurations prefers its own earlier answer (median effect 0.790), although option position changes the choice rate in every eligible configuration. Profile shape transfers most strongly from ratings to conflict choices and weakens for spontaneous text. Three-way annotation of 200 L3 responses provides a task-local check of the semantic audit: FULCRA agrees most closely with the human majority, while DeBERTa retains useful rank information after calibration. Hidden states encode the completed decision more clearly than the prompt alone. Thus the models show reproducible behavioral continuity, but the evidence does not support one scorer-independent value identity across interfaces.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-24</span>
+                    <a href="https://arxiv.org/pdf/2608.23411v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.23391v1" target="_blank">Cross-Domain, Multi-Task Data-to-Text Generation without In-Domain Training Data</a>
+                </div>
+                <div class="paper-authors">👥 Yifei Song, Kun Efimov-Zhang, Claire Gardent</div>
+                <div class="paper-summary">Structured data exists in many forms (tables, knowledge graphs, charts, and time series), and converting it into text may involve different generation tasks. However, most prior work on data-to-text (D2T) generation has focused on specific tasks and datasets, relying either on task-specific training data or on the zero-shot capabilities of large language models. We study cross-domain D2T generation in a setting where neither in-domain training text nor test references are available, and where domains, generation goals, and input structures vary substantially. We compare data-driven knowledge distillation (DDKD) against zero-shot inference and fine-tuning on out-of-domain D2T data, and introduce structure-preserving augmentation via structural subsampling and perturbation. Experiments on five benchmarks show that, at constant model size (1.7B parameters), DDKD consistently outperforms both fine-tuning and zero-shot inference. Moreover, the resulting small models outperform a much larger finetuned model on two of the five domains, achieving comparable performance on the remaining three. We further construct QUINTD-5, a fivefold extension of QUINTD-1, and show that simply scaling real target-domain inputs yields only modest gains, whereas our augmentation strategy remains more effective and more cost-efficient for cross-domain distillation.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-24</span>
+                    <a href="https://arxiv.org/pdf/2608.23391v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+            
+            <h3 style="color: #4a5568; margin-top:30px;">📊 广告与推荐算法</h3>
+            
+            <div class="paper-card ad">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.22973v1" target="_blank">Cascading Relevance-driven Recommendation Network for CTR Prediction in Trigger-Introduced Recommendation</a>
+                </div>
+                <div class="paper-authors">👥 Kaixuan Chen, Wenwen Wang, Xing Fang</div>
+                <div class="paper-summary">E-commerce has emerged as crucial platforms for people's daily consumption and shopping interests. There is a new recommendation scenario, Trigger-Introduced Recommendation (TIR), where users click interested product, which is defined as the trigger item, containing their instant interest, and in the undertaking page following the relevant target items. Distinguished from traditional search and recommendation scenarios, trigger contains relatively strong instant interest, which is more vague and implicit compared to search terms. Relying on large amounts of labeled data, existing methods lack the exploration of trigger relevance, which affects users' immersive experience. To alleviate this problem, we propose the Cascading Relevance-driven Recommendation Network (CRRN) to emphasize the interaction and relevance between trigger and target, comprising three essential components: 1) the Trigger-Target Interaction layer extracts interaction features of trigger and target based on personalized gating. 2) Cascading Interest Fusion module explicitly estimates users' trigger intention and fuses instant and personalized interests adaptively with cascading attention blocks. 3) Category-assisted Pairwise Loss enhances trigger relevance with the guidance of category association between trigger and target. Extensive experiment results show that CRRN outperforms recent state-of-the-art methods on both industrial and public datasets. Online A/B tests further validate the effectiveness of our method. Our code is available at https://github.com/a-little-cabbage/CRRN.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-24</span>
+                    <a href="https://arxiv.org/pdf/2608.22973v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card ad">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.18764v2" target="_blank">GateDiffInt: Gate-Mediated Controllable Diffusion and Multi-Intent LLM Distillation for User Behavior Modeling</a>
+                </div>
+                <div class="paper-authors">👥 Jialong Duan, Zichen Zhang, Zirui Tu</div>
+                <div class="paper-summary">Existing ranking models encode intent only implicitly, making it hard to disentangle structured intents of varying strength and temporal scale. Noise and intent in behavior sequences are mutually reinforcing---we call this Noise--Intent Coupling (NIC). Noise dilutes true intents, while the lack of structured intent priors leaves denoising without a clear target. To address NIC, we propose GateDiffInt, an intent interaction framework for industrial ranking. It uses the final conversion signal to jointly align sequence denoising and intent extraction. GateDiffInt applies a controllable forward diffusion process with dual gating to enhance and denoise behavior sequences. A large language model then acts as teacher to distill four structured intents---long-term, short-term, latent, and conversion into a lightweight student model. The enhanced sequence and structured intent representations are deeply fused via attention to produce intent-aware representations for conversion-rate prediction. Extensive experiments on public and large-scale industrial datasets show consistent gains over strong baselines. In online A/B tests serving hundreds of millions of daily active users, GateDiffInt delivers substantial GMV improvements and has been deployed to primary traffic, confirming both effectiveness and production readiness.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-19</span>
+                    <a href="https://arxiv.org/pdf/2608.18764v2" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- RSS Feeds -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📡</span>
+                <h2 class="section-title">业界动态</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h3 style="border-bottom: 2px solid #ed8936; padding-bottom: 10px; color: #c05621;">🏢 AI Labs 更新</h3>
+                    <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">Meta Engineering</div>
+                <div class="feed-title"><a href="https://engineering.fb.com/2026/08/24/networking-traffic/metaroce-rdma-transport-ai-ethernet/" target="_blank">MetaRoCE: A New RDMA Transport Built for AI-Scale Ethernet</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Meta Engineering</div>
+                <div class="feed-title"><a href="https://engineering.fb.com/2026/08/24/networking-traffic/mtia-300-meta-training-chip-built-in-nics/" target="_blank">MTIA 300: Meta’s First Training Chip with Built-in NICs and Communication-Offloading Engines</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/products/maps/national-parks-week-google-2026/" target="_blank">Celebrate 110 years of national parks with Maps, Search, and Gemini</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/winning-entries-gemma-4-good-challenge/" target="_blank">How developers build AI for good with Gemma 4</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">OpenAI</div>
+                <div class="feed-title"><a href="https://openai.com/index/gpt-5-6-in-kiro" target="_blank">Advancing price-performance for developers with GPT‑5.6 in Kiro</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            </div>
+                </div>
+                <div>
+                    <h3 style="border-bottom: 2px solid #48bb78; padding-bottom: 10px; color: #2f855a;">💰 顶级风投观点</h3>
+                    <p style="color: #cbd5e0;">暂无动态</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                 <h3 style="border-bottom: 2px solid #4299e1; padding-bottom: 10px; color: #2b6cb0;">📰 科技新闻精选</h3>
+                 <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/24/situational-awareness-star-ai-hedge-fund-that-nearly-imploded-now-being-probed-by-the-sec/" target="_blank">Situational Awareness, star AI hedge fund that nearly imploded, now being probed by the SEC</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch AI</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/24/situational-awareness-star-ai-hedge-fund-that-nearly-imploded-now-being-probed-by-the-sec/" target="_blank">Situational Awareness, star AI hedge fund that nearly imploded, now being probed by the SEC</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/games/983457/lenovo-bad-legion-go-bios-update-bricked" target="_blank">Lenovo confirms Legion Go issues after gamers report bricked devices</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/24/oura-is-reportedly-eyeing-a-september-ipo-that-could-value-it-at-more-than-16b/" target="_blank">Oura is reportedly eyeing a September IPO that could value it at more than $16B</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/ai/2026/08/ai-is-hitting-entry-level-jobs-hardest-stanford-study-finds/" target="_blank">AI is hitting entry-level jobs hardest, Stanford study finds</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/gadgets/2026/08/energy-hungry-ai-data-centers-spur-new-power-transformer-technology/" target="_blank">Data centers become "killer application" for new power transformer tech</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/24/trump-bought-spacex-shares-two-weeks-after-blockbuster-ipo/" target="_blank">Trump bought SpaceX shares two weeks after blockbuster IPO</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch AI</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/24/trump-bought-spacex-shares-two-weeks-after-blockbuster-ipo/" target="_blank">Trump bought SpaceX shares two weeks after blockbuster IPO</a></div>
+                <div class="feed-date">08-24</div>
+            </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- YouTube Videos -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2 class="section-title">科技领袖访谈</h2>
+            </div>
+            <h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Elon Musk</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=XuoqKYxDHVc" target="_blank">🎥 The full-length interview with Elon Musk | The Economist</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Elon Musk may be the most powerful man in the world. He's worth almost $1trn, runs Tesla and SpaceX,...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=751BfgE_GQI" target="_blank">🎥 ELon musk talk about buying UK</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">elonmusk #uk #disney #elonmuskbuystwitter #ELonmuskbuyUK here link to video that talking about Elon ...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Jensen Huang</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=I4B37S1dyQQ" target="_blank">🎥 Jensen Huang: The Mindset That Built NVIDIA</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">NVIDIA started with the wrong technology, learned the right one from three textbooks bought at Fry's...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=YYcE2FKiglk" target="_blank">🎥 You Won&#39;t Believe What NVIDIA CEO Just Announced at GTC 2026 😬 - The Future Of AI.</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Watch the complete NVIDIA GTC 2026 keynote presented by CEO Jensen Huang as he unveils the latest br...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Sam Altman</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=Vv3CEAS_w34" target="_blank">🎥 Sam Altman - How to Start a Startup</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Sam Altman is Co-Founder & CEO of OpenAI. Sam on X: https://x.com/sama Ti on X: https://x.com/ti_mor...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=GSvX4eQIfJo" target="_blank">🎥 “좋은 아이디어를 죽여라” 샘 알트먼이 밝힌 OpenAI의 AI 전략 | 한영 자막·영어공부</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">샘 알트먼이 OpenAI를 만들고 운영하며 배운 AI 연구·투자·경영의 원칙을 깊이 있게 이야기합니다. 그는 토비 뤼트케처럼 직접 기술을 ......</div>
+                </div>
+                
+        </div>
+        
+        <!-- New Sources: GitHub, Reddit, HN -->
+        
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">🌐</span>
+                    <h2 class="section-title">社区精选 (AI Curated)</h2>
+                </div>
+                
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f59e0b; padding-bottom: 10px; color: #d97706;">🔥 GitHub 趋势项目</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/b-nnett/grok-bot-0.18-reconstructed" target="_blank" style="color: #2b6cb0;">
+                        b-nnett/grok-bot-0.18-reconstructed
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/tobi/walgit" target="_blank" style="color: #2b6cb0;">
+                        tobi/walgit
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/nateherkai/scroll-craft" target="_blank" style="color: #2b6cb0;">
+                        nateherkai/scroll-craft
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f97316; padding-bottom: 10px; color: #ea580c;">🟠 Hacker News 精选</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49426564" target="_blank" style="color: #2b6cb0;">
+                        iCloud+ Hide My Email addresses will remain on icloud.com
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49421158" target="_blank" style="color: #2b6cb0;">
+                        MS Paint and Photos inivisibly watermark even locally generated output with GUID
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49421489" target="_blank" style="color: #2b6cb0;">
+                        IPFS Maintainers Winding Down
+                    </a>
+                </div>
+                
+            </div>
+            
+            </div>
+            
+        
+        
+        <div class="stats-box">
+            <h4 style="margin:0 0 10px 0; color:#4a5568;">⚙️ 系统运行统计</h4>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#718096;">
+                <div>
+                    <strong>🤖 AI 模型 (Qwen-72B)</strong><br>
+                    调用次数: 0<br>
+                    Input Tokens: 0<br>
+                    Output Tokens: 0
+                </div>
+                <div>
+                    <strong>🎬 YouTube API</strong><br>
+                    API 调用: 18<br>
+                    Quota 消耗: 909 units
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="footer">
+            <p>📅 2026年08月25日 | Daily Info System</p>
+            <p>💡 Stay Hungry, Stay Foolish</p>
+        </div>
+    </div>
+</body>
+</html>
