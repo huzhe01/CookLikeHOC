@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2d3748;
+            margin: 0;
+            font-size: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .date {
+            color: #718096;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .briefing-box {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 5px solid #38b2ac;
+        }
+        .briefing-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #234e52;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .section-icon {
+            font-size: 28px;
+            margin-right: 15px;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #2d3748;
+            margin: 0;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #718096;
+            margin-left: auto;
+        }
+        /* Paper Cards */
+        .paper-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .paper-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        .paper-card.ad { border-left-color: #48bb78; }
+        .paper-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .paper-title a { color: #2d3748; text-decoration: none; }
+        .paper-title a:hover { color: #667eea; }
+        .paper-authors { font-size: 13px; color: #718096; margin-bottom: 10px; }
+        .paper-summary { font-size: 14px; color: #4a5568; line-height: 1.7; }
+        .paper-meta { display: flex; gap: 15px; margin-top: 12px; font-size: 12px; }
+        .paper-tag { display: inline-block; padding: 3px 10px; background: #edf2f7; border-radius: 12px; color: #4a5568; }
+        
+        /* Feed Cards */
+        .feed-list { list-style: none; padding: 0; }
+        .feed-item {
+            padding: 15px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            flex-direction: column;
+        }
+        .feed-item:last-child { border-bottom: none; }
+        .feed-source { 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            color: #718096; 
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .feed-title { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+        .feed-title a { color: #2b6cb0; text-decoration: none; }
+        .feed-title a:hover { text-decoration: underline; }
+        .feed-date { font-size: 12px; color: #a0aec0; }
+
+        .video-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            color: white;
+        }
+        .video-title a { color: #ff6b6b; text-decoration: none; }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        .stats-box {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 AI 研究周报</h1>
+            <div class="date">2026年08月26日</div>
+        </div>
+        
+        <!-- AI Daily Briefing -->
+        <div class="briefing-box">
+            <div class="briefing-title">☕️ 今日 AI 简报</div>
+            <div style="color: #2c7a7b; font-size: 15px; line-height: 1.8;">
+                <p>无法生成今日简报，请直接阅读下方详细内容。</p>
+            </div>
+        </div>
+        
+        <!-- arXiv Papers -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📚</span>
+                <h2 class="section-title">核心论文 (ArXiv)</h2>
+            </div>
+            <h3 style="color: #4a5568; margin-top:20px;">🔥 大模型前沿</h3>
+            
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.24876v1" target="_blank">Recursive Experiential-Working Memory Evolution for Long-Horizon Agent Harnesses</a>
+                </div>
+                <div class="paper-authors">👥 Zhaochen Yu, Yingcheng Wu, Zhenfei Yin</div>
+                <div class="paper-summary">Recursive self-improvement (RSI) remains hard in long-horizon tasks, where growing histories obscure the task state and misalign skill invocation. We introduce Recuris, a recursive Experiential-Working Memory architecture for long-horizon agent harnesses, in which Working Memory tracks task progress and guides skill selection from Experiential Memory, grounding skill use in current needs rather than the full history. This coupling also turns execution into structured evidence that localizes failures to specific memory components. Across tasks, a fixed Meta-Agent turns that evidence into localized, validation-gated updates to Skill Memory that reshape execution and yield new evidence, forming a bounded recursive memory-evolution loop. Across four long-horizon benchmarks and ten models, Recuris improves task success in 35 of the 37 completed model-benchmark pairs, carrying frontier models to SOTA-level task success: on tau-bench it adds +17.8 points to GPT-5.6 Sol and +15.6 to Claude Opus 5, taking Opus 5 to 87.9%, and +16.6/+13.5 points on Qwen3.6-27B/35B on SkillFlow. The advantage widens as the interaction horizon grows, to +32.2 points on the longest tasks, and common long-horizon failures fall by up to 80%. These results position recursively evolving memory as a scalable foundation for RSI, enabling agents to continuously transform accumulated experience into increasingly effective long-horizon behavior. Code: https://github.com/Gen-Verse/Recuris</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-25</span>
+                    <a href="https://arxiv.org/pdf/2608.24876v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.24842v1" target="_blank">Reading Is Not Using: Retrieval, Judgment, and the Design of AI Financial Research Workflows</a>
+                </div>
+                <div class="paper-authors">👥 Miao Liu, Zhizhe Liu</div>
+                <div class="paper-summary">Large language models (LLMs) are increasingly deployed as AI analysts to process financial disclosures and support AI-assisted investment decisions. Yet such systems are usually evaluated by what they can retrieve, not whether retrieved information affects their judgments. We identify a retrieval-integration gap in long-context financial analysis. Holding focal-firm information fixed and varying only unrelated context from 2,000 to 128,000 tokens, we find that a risk disclosure's influence on investment judgments falls to the experimental noise floor even as direct retrieval remains accurate. The pattern replicates across model families and judgment tasks and in experiments removing real disclosures from actual 10-K filings. More capable models postpone but do not eliminate the gap. Causal memory interventions show that compressed summaries and source-text lookup jointly transmit disclosures into judgments. Workflow architecture determines whether this transmission succeeds: chunk-and-summarize pipelines evict relevant information, whereas a targeted, structured restatement adjacent to the decision restores its influence. AI analyst performance is therefore jointly determined by model capability and workflow architecture. Retrieval-based evaluations can certify systems whose investment judgments ignore information they demonstrably retrieved.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-25</span>
+                    <a href="https://arxiv.org/pdf/2608.24842v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.24753v1" target="_blank">The RAT: A Unified Bayesian Model for RAG Evaluation</a>
+                </div>
+                <div class="paper-authors">👥 Pius von Däniken, Felix Matthias Saaro, Mark Cieliebak</div>
+                <div class="paper-summary">Evaluating Retrieval-Augmented Generation (RAG) systems requires assessing not only end-to-end correctness but also how individual components interact and how errors propagate through the pipeline. We introduce a Bayesian evaluation framework that jointly models retrieval success, abstention behavior, and answer correctness, factorized according to the pipeline's information flow. The model distinguishes task success. Whether the user received a correct answer (from generator success) and whether the generator behaved appropriately given the retrieval outcome. We apply the framework to 27 RAG configurations across three datasets, three retrievers, and three generators, and show that the conditional decomposition reveals substantial behavioral differences between systems that appear equivalent under marginal metrics. We further analyze the annotation allocation problem, demonstrating that retrieval-success annotations are more informative than task-success annotations for estimating policy adherence, and provide an information-theoretic explanation for this asymmetry. Finally, we extend the model to incorporate LLM-as-a-judge annotations as calibrated noisy observations, enabling practitioners to combine limited human judgments with cheaper automated assessments within a unified probabilistic model.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-25</span>
+                    <a href="https://arxiv.org/pdf/2608.24753v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.24748v1" target="_blank">Method, Mind, and Morality: How People Make Sense of Artificial Intelligence</a>
+                </div>
+                <div class="paper-authors">👥 Jacy Reese Anthis, Erik Brynjolfsson, James Evans</div>
+                <div class="paper-summary">How can humans make sense of the rapid takeoff of artificial intelligence (AI)? We studied the sensemaking dynamics of AI through an open-ended, mixed-methods study with computational text analysis of millions of AI-related newspaper articles and social media posts grounded in 57 semi-structured interviews with AI professionals in 2021 and 2023--before and after the recent surge of public interest. We identify a range of sociological frames (interpretive schemas that structure collective cognition) and show how AI professionals use frames to address significant cognitive challenges, such as assigning responsibility for societal impacts. We develop a framework of three primary debates across which frames are adopted and contested: (i) the $\textit{method}$ of AI development, between frames of top-down expert systems and bottom-up emergent capabilities, (ii) the $\textit{mind}$ of an AI system, ranging from a passive tool to a humanlike "digital mind," and (iii) the $\textit{morality}$ of how AI is used, particularly the decision of whether to slow down or speed up AI development. As humanity enters the era of transformative AI, technologists and policymakers must account for the framing dynamics that will circumscribe our beliefs, values, and actions.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-25</span>
+                    <a href="https://arxiv.org/pdf/2608.24748v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.24747v1" target="_blank">SkillForge: Evolving Verifiable Skills for Reinforcement Learning Agents</a>
+                </div>
+                <div class="paper-authors">👥 Shidong Yang, Ziyu Ma, Tongwen Huang</div>
+                <div class="paper-summary">Large language model (LLM) agents are trained with reinforcement learning (RL) for complex decision-making tasks. However, most RL-trained agents remain episodic and cannot accumulate reusable knowledge across episodes. Recent skill-based approaches, such as SkillRL, attempt to address this issue by extracting skills from raw trajectories, but treat the skill bank as an append-only repository without verifying whether stored skills remain effective. In this paper, we propose SkillForge, a framework for continuous skill evolution that enables skills to be verified and refined through environment interaction. By making skill usage explicit during agent interaction, RL can directly optimize both environment actions and skill invocation decisions. SkillForge further introduces evidence-based skill verification and multi-pathway skill induction, allowing the skill bank to continuously grow while maintaining its quality. Extensive experiments on ALFWorld, WebShop, and AppWorld show that SkillForge consistently outperforms SkillRL, demonstrating the effectiveness of continuously verified skills in training stronger LLM agents.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-25</span>
+                    <a href="https://arxiv.org/pdf/2608.24747v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.24735v1" target="_blank">Meta$^n$: Recursive Self-Improvement through Emergent Depth</a>
+                </div>
+                <div class="paper-authors">👥 Zae Myung Kim, Young-Jun Lee, Seungyeon Jwa</div>
+                <div class="paper-summary">Self-improving LLM agents refine answers, not the process that produces those answers. Systems that add a meta-level hold that level fixed, and those that edit themselves must leave part of their own editing machinery untouched to stay stable, capping the meta-depth they realize at roughly two. We present Meta$^n$, which keeps the meta-operation fixed and recurses on its input instead. That operation, $Ω$, is applied repeatedly to its own products, reading the traces of the solver stack below together with the code that produced them, then writing the next layer as a strategic pre-process and a library of callable helpers. Because $Ω$ never changes, it cannot destabilize the system, and because its input strictly grows, each layer reasons from a higher vantage than the last. Depth is set by convergence rather than fixed in advance, and an evolutionary archive searches over layer chains. Across two backbones, Meta$^n$ outperforms prior self-improving agents on all eight benchmark families. The sharpest case is ARC-AGI-2, built to resist skill memorization, where it alone scores above zero. Ablations indicate that most of the gain from recursion comes from the conditioning each layer passes to the next, and distinct layer roles emerge with depth although no prompt prescribes them. Code available at https://github.com/minnesotanlp/meta-n</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-25</span>
+                    <a href="https://arxiv.org/pdf/2608.24735v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+            
+            <h3 style="color: #4a5568; margin-top:30px;">📊 广告与推荐算法</h3>
+            
+            <div class="paper-card ad">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.24091v1" target="_blank">Native Multimodal Representation Learning for Click-Through Rate Prediction in E-Commerce Scenarios</a>
+                </div>
+                <div class="paper-authors">👥 Chao Yi, Feifan Yang, Jiawei Feng</div>
+                <div class="paper-summary">Multimodal representations have been widely adopted in industrial e-commerce recommendation systems. Due to their strong semantic understanding and generalization capabilities, they enhance the performance of traditional sparse ID-based Click-Through Rate (CTR) prediction models. Current multimodal application frameworks in the CTR prediction task typically follow a two-stage paradigm: first, pre-training a multimodal encoder on data from specific recommendation scenarios; second, extracting items' multimodal representations using this pre-trained multimodal encoder and integrating them into the CTR prediction model. However, the training objectives and data distribution of multimodal pre-training tasks often differ from those of the CTR prediction task, which limits the effectiveness of multimodal representation on downstream tasks. In this paper, we focus on how to learn Native Multimodal Representation for the CTR prediction task. One intuitive solution is to jointly train the multimodal encoder and CTR model end-to-end on the CTR task, with the expectation that the encoder can automatically learn downstream-relevant knowledge. However, we find that the end-to-end training does not bring performance improvements to existing multimodal application paradigms. Our analysis reveals that user behaviors in raw CTR data are driven by both multimodal semantics and non-multimodal factors, leading to ambiguous supervision and inconsistent encoder updates. To address this, we propose a Mine-Then-Train method that mines high-quality, multimodally interpretable training samples from CTR data and uses them to fine-tune the multimodal encoder for better alignment with user click preferences. Offline and online experiments demonstrate the effectiveness of our approach.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-25</span>
+                    <a href="https://arxiv.org/pdf/2608.24091v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+
+            <div class="paper-card ad">
+                <div class="paper-title">
+                    <a href="https://arxiv.org/abs/2608.22973v1" target="_blank">Cascading Relevance-driven Recommendation Network for CTR Prediction in Trigger-Introduced Recommendation</a>
+                </div>
+                <div class="paper-authors">👥 Kaixuan Chen, Wenwen Wang, Xing Fang</div>
+                <div class="paper-summary">E-commerce has emerged as crucial platforms for people's daily consumption and shopping interests. There is a new recommendation scenario, Trigger-Introduced Recommendation (TIR), where users click interested product, which is defined as the trigger item, containing their instant interest, and in the undertaking page following the relevant target items. Distinguished from traditional search and recommendation scenarios, trigger contains relatively strong instant interest, which is more vague and implicit compared to search terms. Relying on large amounts of labeled data, existing methods lack the exploration of trigger relevance, which affects users' immersive experience. To alleviate this problem, we propose the Cascading Relevance-driven Recommendation Network (CRRN) to emphasize the interaction and relevance between trigger and target, comprising three essential components: 1) the Trigger-Target Interaction layer extracts interaction features of trigger and target based on personalized gating. 2) Cascading Interest Fusion module explicitly estimates users' trigger intention and fuses instant and personalized interests adaptively with cascading attention blocks. 3) Category-assisted Pairwise Loss enhances trigger relevance with the guidance of category association between trigger and target. Extensive experiment results show that CRRN outperforms recent state-of-the-art methods on both industrial and public datasets. Online A/B tests further validate the effectiveness of our method. Our code is available at https://github.com/a-little-cabbage/CRRN.</div>
+                <div class="paper-meta">
+                    <span class="paper-tag">📅 2026-08-24</span>
+                    <a href="https://arxiv.org/pdf/2608.22973v1" class="paper-link" target="_blank">📄 PDF</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- RSS Feeds -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📡</span>
+                <h2 class="section-title">业界动态</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h3 style="border-bottom: 2px solid #ed8936; padding-bottom: 10px; color: #c05621;">🏢 AI Labs 更新</h3>
+                    <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/devices/pixel/buy-pixel-11-phones-pixel-5-watch/" target="_blank">You can officially buy the Pixel 11 phones and Pixel Watch 5.</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/products/search/home-decor-tips/" target="_blank">5 ways to upgrade your home decor with Google Search</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/innovation-and-ai/products/gemini-app/enable-intelligent-dictation-macos/" target="_blank">Here’s how to use intelligent dictation in Gemini for macOS.</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/products-and-platforms/platforms/google-play/google-play-gamescom-takeover-rewards/" target="_blank">Ready to play? Experience Google Play’s biggest Gamescom showcase yet.</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Google The Keyword</div>
+                <div class="feed-title"><a href="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/free-ai-training-delaware/" target="_blank">We’re partnering with the State of Delaware to provide free AI and career training.</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">OpenAI</div>
+                <div class="feed-title"><a href="https://openai.com/index/the-full-stack-behind-abundant-intelligence" target="_blank">The full stack behind abundant intelligence</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">OpenAI</div>
+                <div class="feed-title"><a href="https://openai.com/index/jalapeno-first-results" target="_blank">Jalapeño’s first results show industry-leading speed and efficiency in AI inference</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">OpenAI</div>
+                <div class="feed-title"><a href="https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia" target="_blank">Disrupting a new covert influence campaign from Russia</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            </div>
+                </div>
+                <div>
+                    <h3 style="border-bottom: 2px solid #48bb78; padding-bottom: 10px; color: #2f855a;">💰 顶级风投观点</h3>
+                    <p style="color: #cbd5e0;">暂无动态</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                 <h3 style="border-bottom: 2px solid #4299e1; padding-bottom: 10px; color: #2b6cb0;">📰 科技新闻精选</h3>
+                 <div class="feed-list">
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/25/robotics-startup-generalist-reaches-3b-valuation-sources-say/" target="_blank">Robotics startup Generalist reaches $3B valuation, sources say</a></div>
+                <div class="feed-date">08-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch AI</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/25/robotics-startup-generalist-reaches-3b-valuation-sources-say/" target="_blank">Robotics startup Generalist reaches $3B valuation, sources say</a></div>
+                <div class="feed-date">08-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/" target="_blank">OpenAI loses a top data center exec, as stream of high-profile departures continues</a></div>
+                <div class="feed-date">08-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">TechCrunch AI</div>
+                <div class="feed-title"><a href="https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/" target="_blank">OpenAI loses a top data center exec, as stream of high-profile departures continues</a></div>
+                <div class="feed-date">08-26</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/space/2026/08/the-worlds-busiest-spaceport-is-about-to-get-a-lot-quieter-at-least-for-now/" target="_blank">The world's busiest spaceport is about to get a lot quieter, at least for now</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/gadgets/984753/garmin-fenix-9-smartwatch-launch" target="_blank">Garmin’s new Fenix 9 adds brighter screens and smoother map panning</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">The Verge</div>
+                <div class="feed-title"><a href="https://www.theverge.com/policy/984723/trump-h1b-fee-asylum-legal-immigration" target="_blank">Trump is upping the price of Big Tech’s favorite visa</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            
+            <div class="feed-item">
+                <div class="feed-source">Ars Technica</div>
+                <div class="feed-title"><a href="https://arstechnica.com/ai/2026/08/world-humanoid-robot-games-show-runners-breaking-records-bursting-into-flames/" target="_blank">World humanoid robot games show runners breaking records, bursting into flames</a></div>
+                <div class="feed-date">08-25</div>
+            </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- YouTube Videos -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎬</span>
+                <h2 class="section-title">科技领袖访谈</h2>
+            </div>
+            <h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Elon Musk</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=XuoqKYxDHVc" target="_blank">🎥 The full-length interview with Elon Musk | The Economist</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Elon Musk may be the most powerful man in the world. He's worth almost $1trn, runs Tesla and SpaceX,...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=XhxlVT8w5Ks" target="_blank">🎥 Musk Told Cursor He Isn&#39;t Used To Losing | SLAYSTREAM 009</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Elon Musk's first all-hands with the Cursor staff, according to The Information. SpaceX had just clo...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Jensen Huang</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=I4B37S1dyQQ" target="_blank">🎥 Jensen Huang: The Mindset That Built NVIDIA</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">NVIDIA started with the wrong technology, learned the right one from three textbooks bought at Fry's...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=YYcE2FKiglk" target="_blank">🎥 You Won&#39;t Believe What NVIDIA CEO Just Announced at GTC 2026 😬 - The Future Of AI.</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Watch the complete NVIDIA GTC 2026 keynote presented by CEO Jensen Huang as he unveils the latest br...</div>
+                </div>
+                
+<h4 style="margin: 20px 0 10px 0; color: #553c9a;">👤 Sam Altman</h4>
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=Vv3CEAS_w34" target="_blank">🎥 Sam Altman - How to Start a Startup</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">Sam Altman is Co-Founder & CEO of OpenAI. Sam on X: https://x.com/sama Ti on X: https://x.com/ti_mor...</div>
+                </div>
+                
+
+                <div class="video-card">
+                    <div class="video-title"><a href="https://www.youtube.com/watch?v=G6iH20uiK2c" target="_blank">🎥 OpenAI Is COLLAPSING And Sam Altman Is Panicking</a></div>
+                    <div style="font-size: 12px; color: #a0aec0; margin-top:5px;">A jury just exposed what ai really wants, and sam altman's real plans to escape the ai bubble HE cre...</div>
+                </div>
+                
+        </div>
+        
+        <!-- New Sources: GitHub, Reddit, HN -->
+        
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">🌐</span>
+                    <h2 class="section-title">社区精选 (AI Curated)</h2>
+                </div>
+                
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f59e0b; padding-bottom: 10px; color: #d97706;">🔥 GitHub 趋势项目</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/ApodexAI/FrontierAgent" target="_blank" style="color: #2b6cb0;">
+                        ApodexAI/FrontierAgent
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://github.com/bryllim/workout-guide" target="_blank" style="color: #2b6cb0;">
+                        bryllim/workout-guide
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3 style="border-bottom: 2px solid #f97316; padding-bottom: 10px; color: #ea580c;">🟠 Hacker News 精选</h3>
+                
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49434378" target="_blank" style="color: #2b6cb0;">
+                        OpenAI Jalapeño: Better than Nvidia Blackwell
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49441375" target="_blank" style="color: #2b6cb0;">
+                        Show HN: TeXbrain, a LaTeX editor that runs pdfTeX in the browser via WASM
+                    </a>
+                </div>
+                
+
+                <div style="padding: 10px; border-left: 3px solid #cbd5e0; margin: 8px 0;">
+                    <a href="https://news.ycombinator.com/item?id=49435675" target="_blank" style="color: #2b6cb0;">
+                        Show HN: I made a Raspberry with Qwen my local car AI
+                    </a>
+                </div>
+                
+            </div>
+            
+            </div>
+            
+        
+        
+        <div class="stats-box">
+            <h4 style="margin:0 0 10px 0; color:#4a5568;">⚙️ 系统运行统计</h4>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#718096;">
+                <div>
+                    <strong>🤖 AI 模型 (Qwen-72B)</strong><br>
+                    调用次数: 0<br>
+                    Input Tokens: 0<br>
+                    Output Tokens: 0
+                </div>
+                <div>
+                    <strong>🎬 YouTube API</strong><br>
+                    API 调用: 18<br>
+                    Quota 消耗: 909 units
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="footer">
+            <p>📅 2026年08月26日 | Daily Info System</p>
+            <p>💡 Stay Hungry, Stay Foolish</p>
+        </div>
+    </div>
+</body>
+</html>
